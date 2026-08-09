@@ -8,6 +8,8 @@ use Not8::Model::Note;
 
 use Moo;
 
+use Log::Report;
+
 has _datastore => (
     is => 'lazy',
     builder => sub { Not8::DataStore->new() },

@@ -2,14 +2,13 @@ package Not8;
 
 use JSON qw/encode_json/;
 
-use Dancer2;
-
-use Not8::DataStore;
+use Not8::DataService;
 use Not8::Model::Note;
 
-our $VERSION = '0.1';
+use Dancer2;
+use Dancer2::Plugin::LogReport;
 
-my $datastore = [];
+our $VERSION = '0.1';
 
 get '/' => sub {
     content_type 'application/json';
