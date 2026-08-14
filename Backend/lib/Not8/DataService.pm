@@ -15,6 +15,12 @@ has _datastore => (
     builder => sub { Not8::DataStore->new() },
 );
 
+sub count {
+    my $self = shift;
+    my $result = $self->_datastore->get_all;
+    return $result;
+}
+
 sub add_item {
     my ($self, %args) = @_;
     my $id = $args{id} // 0;
@@ -29,12 +35,13 @@ sub add_item {
         content => $content,
     );
 
-    $self->_datastore->add_item($note);
+    $self->_datastore->add($note);
 }
 
 sub get_all {
     my $self = shift;
-    $self->_datastore->get_all();
+    my @result = $self->_datastore->get_all();
+    return @result;
 }
 
 sub get_one {

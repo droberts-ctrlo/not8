@@ -6,8 +6,8 @@ use warnings;
 use Moo;
 
 has id => (
-    is => 'ro',
-    required => 1,
+    is => 'rw',
+    default => sub { 0 },
 );
 
 has title => (
